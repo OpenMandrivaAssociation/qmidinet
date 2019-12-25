@@ -1,13 +1,18 @@
 Summary:	A MIDI Network Gateway via UDP/IP Multicast
 Name:		qmidinet
 Version:	0.6.1
-Release:	%mkrel 1
+Release:	1
 License:	GPLv2+
 Group:		Sound/Utilities
 URL:		http://qmidinet.sourceforge.net/
 Source0:	http://sourceforge.net/projects/qmidinet/files/qmidinet/%{version}/%{name}-%{version}.tar.gz
+
+BuildRequires:	qt5-qttools
+BuildRequires:  qt5-qtchooser
+BuildRequires:	qt5-linguist
+BuildRequires:	qt5-linguist-tools
+BuildRequires:  qmake5
 BuildRequires:	desktop-file-utils
-BuildRequires:	qttools5
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
@@ -25,7 +30,7 @@ designed to be compatible with ipMIDI for Windows (http://nerds.de).
 %autopatch -p1
 
 %build
-%configure2_5x --enable-debug
+%configure --enable-debug
 %make_build
 
 %install
@@ -35,7 +40,7 @@ designed to be compatible with ipMIDI for Windows (http://nerds.de).
 desktop-file-install \
   --remove-key="X-SuSE-translate" \
   --remove-key="Version" \
-  --add-category="X-Mageia-CrossDesktop" \
+  --add-category="X-MandrivaLinux-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
 %{buildroot}%{_datadir}/applications/%{name}.desktop
 
