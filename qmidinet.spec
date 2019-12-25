@@ -51,3 +51,5 @@ desktop-file-install \
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
 %{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%{_mandir}/man1/qmidinet.1.xz
+%{_mandir}/man1/qmidinet.fr.1.xz
