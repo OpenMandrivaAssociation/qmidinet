@@ -1,6 +1,6 @@
 Summary:	A MIDI Network Gateway via UDP/IP Multicast
 Name:		qmidinet
-Version:	0.6.1
+Version:	0.9.0
 Release:	1
 License:	GPLv2+
 Group:		Sound/Utilities
@@ -50,6 +50,6 @@ desktop-file-install \
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_mandir}/man1/qmidinet.1.xz
 %{_mandir}/man1/qmidinet.fr.1.xz
