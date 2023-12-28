@@ -51,8 +51,8 @@ desktop-file-install \
 %doc ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/applications/org.rncbc.qmidinet.desktop
-#{_datadir}/metainfo/%{name}.appdata.xml
-#{_iconsdir}/hicolor/*x*/apps/%{name}.png
-#{_iconsdir}/hicolor/scalable/apps/qmidinet.svg
+%{_datadir}/metainfo/org.rncbc.qmidinet.metainfo.xml
+%{_iconsdir}/hicolor/32x32/apps/org.rncbc.qmidinet.png
+%{_iconsdir}/hicolor/scalable/apps/org.rncbc.qmidinet.svg
 %{_mandir}/man1/qmidinet.1.*
 %{_mandir}/fr/man1/qmidinet.1.*
