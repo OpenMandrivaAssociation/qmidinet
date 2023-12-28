@@ -48,12 +48,11 @@ desktop-file-install \
 %{buildroot}%{_datadir}/applications/org.rncbc.qmidinet.desktop
 
 %files
-%doc AUTHORS ChangeLog README TODO
-%license COPYING
+%doc ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/applications/org.rncbc.qmidinet.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/*x*/apps/%{name}.png
-%{_iconsdir}/hicolor/scalable/apps/qmidinet.svg
+#{_datadir}/metainfo/%{name}.appdata.xml
+#{_iconsdir}/hicolor/*x*/apps/%{name}.png
+#{_iconsdir}/hicolor/scalable/apps/qmidinet.svg
 %{_mandir}/man1/qmidinet.1.*
 %{_mandir}/fr/man1/qmidinet.1.*
