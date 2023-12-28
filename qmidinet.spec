@@ -45,13 +45,13 @@ desktop-file-install \
   --remove-key="Version" \
   --add-category="X-MandrivaLinux-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/%{name}.desktop
+%{buildroot}%{_datadir}/applications/org.rncbc.qmidinet.desktop
 
 %files
 %doc AUTHORS ChangeLog README TODO
 %license COPYING
 %{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/org.rncbc.qmidinet.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_iconsdir}/hicolor/scalable/apps/qmidinet.svg
