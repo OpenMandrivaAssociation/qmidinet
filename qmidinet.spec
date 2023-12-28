@@ -1,21 +1,24 @@
 Summary:	A MIDI Network Gateway via UDP/IP Multicast
 Name:		qmidinet
-Version:	0.9.4
+Version:	0.9.11
 Release:	1
 License:	GPLv2+
 Group:		Sound/Utilities
-URL:		http://qmidinet.sourceforge.net/
-Source0:	http://sourceforge.net/projects/qmidinet/files/qmidinet/%{version}/%{name}-%{version}.tar.gz
+URL:		https://qmidinet.sourceforge.net/
+Source0:	https://sourceforge.net/projects/qmidinet/files/qmidinet/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:	qt5-qttools
-BuildRequires:  qt5-qtchooser
-BuildRequires:	qt5-linguist
-BuildRequires:	qt5-linguist-tools
-BuildRequires:  qmake5
 BuildRequires:	desktop-file-utils
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	cmake
+BuildRequires:	cmake(Qt6)
+BuildRequires:	qmake-qt6
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6Network)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	qt6-qtbase-theme-gtk3
+BuildRequires:  pkgconfig(xkbcommon-x11)
+BuildRequires:  pkgconfig(vulkan)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(alsa)
 
@@ -26,15 +29,15 @@ multicast. Inspired by multimidicast (http://llg.cubic.org/tools) and
 designed to be compatible with ipMIDI for Windows (http://nerds.de).
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
-%configure --enable-debug
+%cmake \
+        -DCONFIG_QT6=yes
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 #menu
 desktop-file-install \
@@ -42,15 +45,14 @@ desktop-file-install \
   --remove-key="Version" \
   --add-category="X-MandrivaLinux-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/%{name}.desktop
+%{buildroot}%{_datadir}/applications/org.rncbc.qmidinet.desktop
 
 %files
-%doc AUTHORS ChangeLog README TODO
-%license COPYING
+%doc ChangeLog README
 %{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/*x*/apps/%{name}.png
-%{_iconsdir}/hicolor/scalable/apps/qmidinet.svg
+%{_datadir}/applications/org.rncbc.qmidinet.desktop
+%{_datadir}/metainfo/org.rncbc.qmidinet.metainfo.xml
+%{_iconsdir}/hicolor/32x32/apps/org.rncbc.qmidinet.png
+%{_iconsdir}/hicolor/scalable/apps/org.rncbc.qmidinet.svg
 %{_mandir}/man1/qmidinet.1.*
 %{_mandir}/fr/man1/qmidinet.1.*
