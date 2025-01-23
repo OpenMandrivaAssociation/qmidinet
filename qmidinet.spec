@@ -1,6 +1,6 @@
 Summary:	A MIDI Network Gateway via UDP/IP Multicast
 Name:		qmidinet
-Version:	0.9.11
+Version:	1.0.0
 Release:	1
 License:	GPLv2+
 Group:		Sound/Utilities
