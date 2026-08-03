@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:	Sound
 Url:	https://qmidinet.sourceforge.net/
 Source0:	https://sourceforge.net/projects/qmidinet/files/qmidinet/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	make
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	qmake-qt6
@@ -43,12 +44,10 @@ designed to be compatible with ipMIDI for Windows (https://nerds.de).
 %prep
 %autosetup -p1
 
-
 %build
 %cmake -DCONFIG_QT6=yes
 
 %make_build
-
 
 %install
 %make_install -C build
